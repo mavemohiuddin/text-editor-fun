@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full w-full">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="./main.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Text Editor</title>
+</head>
+<body class="h-full w-full">
+    <main class="h-full w-full flex flex-col items-center justify-center">
+        <div class="flex gap-8 w-full justify-center items-end">
+            <div class="bg-gray-700 px-3 pt-3 pb-6 h-52">
+                <div class="disco w-28 h-40 bg-white relative overflow-hidden"></div>
+            </div>
+
+            <div class="max-w-lg w-full px-3 pt-5 pb-3 bg-gray-500 rounded-lg relative">
+                <div class="absolute left-1/2 -translate-x-1/2 top-1 h-3 w-3 bg-black rounded-full border border-gray-300"></div>
+                <textarea placeholder="Click to type" name="play_text" id="play_text" class="resize-none w-full h-64 rounded-md outline-none p-3"></textarea>
+                <p class="text-semibold text-gray-400 text-center">Computer</p>
+            </div>
+
+            <div class="h-96 w-40 bg-gray-900 px-3 py-5">
+                <div class="h-16 w-full bg-gray-800 mb-3 flex items-center justify-center gap-3">
+                    <div id="light1" class="h-2 w-2 rounded-full bg-red-300"></div>
+                    <div id="light2" class="h-2 w-2 rounded-full bg-green-300"></div>
+                    <div id="light3" class="h-2 w-2 rounded-full bg-blue-300"></div>
+                </div>
+                <div class="h-16 w-full bg-gray-800 mb-3 flex items-center justify-center px-4 gap-3">
+                    <div class="border border-gray-700 w-full h-4"></div>
+                    <div class="border border-gray-700 w-full h-4"></div>
+                    <div class="border border-gray-700 w-full h-4"></div>
+                </div>
+                <div class="h-16 w-full bg-gray-800 mb-3 flex items-center justify-center px-4">
+                    <div class="border border-gray-700 w-full h-4"></div>
+                </div>
+                <div class="h-28 w-full bg-gray-800 flex items-center justify-center">
+                    <div class="h-10 w-10 rounded-full border-8 border-white">
+                        <div class="h-9 w-4 border-4 border-gray-800 bg-white mx-auto -translate-y-5"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gray-700 px-3 pt-3 pb-6 h-52">
+                <div class="disco w-28 h-40 bg-white relative overflow-hidden"></div>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-20">
+            <div class="controller relative bg-gray-400 h-24 w-48 mt-12 isolate">
+                <p id="blink" class="h-2 w-2 rounded-t-full bg-red-300 text-transparent flex items-center justify-center absolute left-1/2 -translate-x-1/2 -translate-y-full">B</p>
+                <div class="left_group">
+                    <p data-button-group="1" id="font-bold" class="font-bold absolute h-6 w-6 rounded-full bg-gray-600 flex items-center justify-center text-white">B</p>
+                    <p data-button-group="1" id="italic" class="italic absolute h-6 w-6 rounded-full bg-gray-600 flex items-center justify-center text-white">I</p>
+                    <p data-button-group="1" id="underline" class="underline absolute h-6 w-6 rounded-full bg-gray-600 flex items-center justify-center text-white">U</p>
+                    <p data-button-group="1" id="line-through" class="line-through absolute h-6 w-6 rounded-full bg-gray-600 flex items-center justify-center text-white">O</p>
+                </div>
+
+                <div class="middle_group absolute top-4 left-1/2 -translate-x-1/2 flex flex-wrap w-16 items-center justify-center gap-2">
+                    <p data-button-group="2" id="text-red-600" class="font-bold h-6 w-6 rounded-full bg-red-600 text-transparent flex items-center justify-center">B</p>
+                    <p data-button-group="2" id="text-green-600" class="font-bold h-6 w-6 rounded-full bg-green-600 text-transparent flex items-center justify-center">B</p>
+                    <p data-button-group="2" id="text-blue-600" class="font-bold h-6 w-6 rounded-full bg-blue-600 text-transparent flex items-center justify-center">B</p>
+                    <p data-button-group="2" id="text-orange-600" class="font-bold h-6 w-6 rounded-full bg-orange-600 text-transparent flex items-center justify-center">B</p>
+                </div>
+                
+                <div class="right_group">
+                    <p data-button-group="3" id="text-center" class="absolute h-6 w-6 rounded-full bg-gray-600 flex items-center justify-center text-white">C</p>
+                    <p data-button-group="3" id="text-left" class="absolute h-6 w-6 rounded-full bg-gray-600 flex items-center justify-center text-white">L</p>
+                    <p data-button-group="3" id="text-right" class="absolute h-6 w-6 rounded-full bg-gray-600 flex items-center justify-center text-white">R</p>
+                    <p data-button-group="3" id="text-justify" class="absolute h-6 w-6 rounded-full bg-gray-600 flex items-center justify-center text-white">J</p>
+                </div>
+            </div>
+
+            <!-- <div class="remote h-48 w-24 bg-gray-300 mt-8 skew-x-2 -skew-y-2 px-2 py-4">
+                <p class="text-sm">font-size:</p>
+                <div class="flex gap-2 items-center">
+                    <input type="number" placeholder="16px" value="16" class="bg-white w-full mt-1 mb-1 pl-2 rounded-full">
+                    <p class="text-sm">px</p>
+                </div>
+                <div class="relative mt-1 mb-7">
+                    <p data-button-group="4" class="absolute h-6 w-6 rounded-full bg-gray-600 text-white left-2 flex items-center justify-center">+</p>
+                    <p data-button-group="4" class="absolute h-6 w-6 rounded-full bg-gray-600 text-white right-2 flex items-center justify-center">-</p>
+                </div>
+                <p class="text-sm">Background:</p>
+                <div class="relative mt-1 mb-9">
+                    <p data-button-group="4" class="absolute h-6 w-6 rounded-full bg-red-600 text-white left-2 flex items-center justify-center"></p>
+                    <p data-button-group="4" class="absolute h-6 w-6 rounded-full bg-green-600 text-white right-2 flex items-center justify-center"></p>
+                </div>
+                <div class="relative mt-1">
+                    <p data-button-group="4" class="absolute h-6 w-6 rounded-full bg-blue-600 text-white left-2 flex items-center justify-center"></p>
+                    <p data-button-group="4" class="absolute h-6 w-6 rounded-full bg-orange-600 text-white right-2 flex items-center justify-center"></p>
+                </div>
+            </div>   -->
+        </div>
+        
+    </main>
+</body>
+</html>

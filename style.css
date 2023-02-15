@@ -1,0 +1,90 @@
+.controller {
+    border-radius: 45%;
+}
+.controller::before,
+.controller::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    height: 150%;
+    width: 50%;
+    background-color: inherit;
+    border-radius: 50% 50% 50% 50% / 25% 25% 75% 75%;
+    transform: rotate(10deg);
+    z-index: -1;
+}
+.controller::after {
+    left: unset;
+    right: -20px;
+    transform: rotate(-10deg);
+}
+
+:root {
+    --button_pos: 20px;
+}
+.left_group {
+    transform: translate(-5px, 10px);
+}
+.right_group {
+    transform: translate(5px, 10px);
+}
+
+#font-bold {
+    top: 0px;
+    left: var(--button_pos);
+}
+#italic {
+    top: var(--button_pos);
+    left: 0px;
+}
+#underline {
+    top: calc(var(--button_pos) * 2);
+    left: var(--button_pos);
+}
+#line-through {
+    top: var(--button_pos);
+    left: calc(var(--button_pos) * 2);
+}
+
+#text-center {
+    top: 0px;
+    right: var(--button_pos);
+}
+#text-right {
+    top: var(--button_pos);
+    right: 0px;
+}
+#text-justify {
+    top: calc(var(--button_pos) * 2);
+    right: var(--button_pos);
+}
+#text-left {
+    top: var(--button_pos);
+    right: calc(var(--button_pos) * 2);
+}
+
+.disco {
+    display: grid;
+    grid-template-rows: repeat(15, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    padding-top: 1px;
+    padding-right: 1px;
+}
+.disco::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    height: 500px;
+    width: 500px;
+    background-image: linear-gradient(to right, rgb(139, 43, 43), rgb(33, 117, 33));
+    animation: move 3s infinite both;
+    pointer-events: none;
+}
+
+@keyframes move {
+    0%, 100% {transform: translate(-10%, -50%) rotate(45deg);}
+    50% {transform: translate(-90%, -50%) rotate(45deg);}
+}
